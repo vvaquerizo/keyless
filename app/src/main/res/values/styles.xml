@@ -21,4 +21,9 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
+    <!-- Login button theme -->
+    <style name="AppTheme.LoginButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/login_button_shape</item>
+    </style>
+
 </resources>

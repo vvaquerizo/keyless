@@ -62,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="#55FFFFFF"
+
         android:text="@string/login_button"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
@@ -71,5 +71,16 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editText2"
         app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        style="@style/AppTheme.LoginButton"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="@+id/editText"
+        android:layout_height="80dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@drawable/app_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
