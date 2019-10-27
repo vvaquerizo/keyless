@@ -9,8 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
-    private String[] dataset;
+    private List<DoorData> dataset;
     private LayoutInflater inflater;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -22,7 +24,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         }
     }
 
-    public MyRecyclerAdapter(Context context, String[] dataset) {
+    public MyRecyclerAdapter(Context context, List<DoorData> dataset) {
         this.dataset = dataset;
         this.inflater = LayoutInflater.from(context);
 
@@ -38,11 +40,11 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.textView.setText(dataset[position]);
+        holder.textView.setText(dataset.get(position).name);
     }
 
     @Override
     public int getItemCount() {
-        return dataset.length;
+        return dataset.size();
     }
 }

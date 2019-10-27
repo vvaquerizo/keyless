@@ -19,9 +19,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 " name TEXT," +
                 " address TEXT)");
 
-        db.execSQL("INSERT INTO actor (name, address) values " +
-                "('Juan','García')," +
-                "('Pepe','Viyuela');");
+        db.execSQL("INSERT INTO doors (name, address) values " +
+                "('Apartamentos Buenavista','C/ Buenavista, 21, 1º B')," +
+                "('Pisos soleados','Avenida Esperanza, 154, 4ºC');");
     }
 
     @Override
