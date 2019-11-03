@@ -15,7 +15,7 @@
         android:scaleType="centerCrop">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/door_image"
             android:layout_width="128dp"
             android:layout_height="128dp"
             app:srcCompat="@drawable/login_background"
@@ -28,11 +28,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/item_row_text"
+                android:id="@+id/door_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Item"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/door_address_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
         </LinearLayout>
 
     </LinearLayout>
