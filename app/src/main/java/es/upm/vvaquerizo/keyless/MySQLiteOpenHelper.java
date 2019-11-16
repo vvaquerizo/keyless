@@ -33,18 +33,20 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         byte imageInByte[] = stream.toByteArray();*/
         
 
-        db.execSQL("CREATE TABLE doors (" +
+        db.execSQL("CREATE TABLE doors ( id INT," +
                 " name TEXT," +
                 " address TEXT," +
                 " image BLOB)");
 
-        ContentValues cv = new  ContentValues();
+        ContentValues cv = new ContentValues();
+        cv.put("id",1);
         cv.put("name", "Apartamentos Buenavista");
         cv.put("address", "C/ Buenavista, 21, 1º B");
         cv.put("image", getByteImageFromDrawable(R.drawable.imagen_piso_1));
         db.insert( "doors", null, cv );
 
-        ContentValues cv = new  ContentValues();
+        cv = new ContentValues();
+        cv.put("id",2);
         cv.put("name", "Pisos Soleados");
         cv.put("address", "Avenida Esperanza, 154, 4ºC");
         cv.put("image", getByteImageFromDrawable(R.drawable.imagen_piso_2));
