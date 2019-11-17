@@ -7,7 +7,7 @@
     tools:context=".RoomDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/door_image"
         android:layout_width="0dp"
         android:layout_height="256dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +17,7 @@
         android:scaleType="centerCrop"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/door_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -26,15 +26,15 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/door_image" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/door_address_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Dirección"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/door_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/door_name_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

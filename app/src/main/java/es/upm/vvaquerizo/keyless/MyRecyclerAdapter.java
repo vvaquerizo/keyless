@@ -1,13 +1,16 @@
 package es.upm.vvaquerizo.keyless;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +19,15 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
-    private List<DoorData> dataset;
+    public static List<DoorData> dataset;
     private LayoutInflater inflater;
+
+    private Context context;
+
+    /*@Override
+    public void onClick(View view) {
+        Toast.makeText(context, String.valueOf(view.), Toast.LENGTH_LONG).show();
+    }*/
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView_door_name;
@@ -46,15 +56,25 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.textView_door_name.setText(dataset.get(position).name);
         holder.textView_door_address.setText(dataset.get(position).address);
+        context = holder.door_image.getContext();
 
         //convert byte to bitmap take from contact class
         byte[] outImage=dataset.get(position).image;
         ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
         Bitmap theImage = BitmapFactory.decodeStream(imageStream);
         holder.door_image.setImageBitmap(theImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RoomDetailsActivity.class);
+                intent.putExtra("door_id", position);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

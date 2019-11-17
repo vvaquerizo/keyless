@@ -24,15 +24,6 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        /*// get image from drawable
-        Bitmap image = BitmapFactory.decodeResource(context.getResources(),
-                R.drawable.imagen_piso_1);
-        // convert bitmap to byte
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte imageInByte[] = stream.toByteArray();*/
-        
-
         db.execSQL("CREATE TABLE doors ( id INT," +
                 " name TEXT," +
                 " address TEXT," +
