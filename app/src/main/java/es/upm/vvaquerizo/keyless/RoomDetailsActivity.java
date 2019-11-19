@@ -23,6 +23,8 @@ public class RoomDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
 
+        getSupportActionBar().setTitle("Detalles");
+
         // Get the Intent that started this activity and extract the position
         Intent intent = getIntent();
         Log.d("intent URI", intent.toUri(0));
@@ -37,6 +39,9 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
         TextView doorNameText = findViewById(R.id.door_name_text);
         doorNameText.setText(doorData.name);
+
+        TextView doorPriceText = findViewById(R.id.door_price_text);
+        doorPriceText.setText(String.valueOf(doorData.price));
 
         TextView doorAddressText = findViewById(R.id.door_address_text);
         doorAddressText.setText(doorData.address);

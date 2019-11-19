@@ -31,8 +31,10 @@ public class DoorListActivity extends AppCompatActivity {
         cursor.moveToFirst();
         while (cursor.isAfterLast() == false)
         {
+            int index = cursor.getColumnIndex("price");
             doors.add(new DoorData(cursor.getString(cursor.getColumnIndex("name"))
                                     ,cursor.getString(cursor.getColumnIndex("address"))
+                                    ,cursor.getInt(cursor.getColumnIndex("price"))
                                     ,cursor.getBlob(cursor.getColumnIndex("image"))));
             cursor.moveToNext();
         }
