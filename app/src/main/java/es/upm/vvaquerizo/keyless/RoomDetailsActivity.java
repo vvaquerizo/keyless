@@ -7,10 +7,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.io.ByteArrayInputStream;
 
@@ -23,6 +22,8 @@ public class RoomDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_details);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("Detalles");
 
         // Get the Intent that started this activity and extract the position
@@ -31,7 +32,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
         door_id = intent.getIntExtra("door_id",0);
         doorData = MyRecyclerAdapter.dataset.get(door_id);
 
-        ImageView doorImage = findViewById(R.id.door_image);
+        ImageView doorImage = findViewById(R.id.add_door_image);
         byte[] outImage = doorData.image;
         ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
         Bitmap theImage = BitmapFactory.decodeStream(imageStream);
@@ -45,5 +46,14 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
         TextView doorAddressText = findViewById(R.id.door_address_text);
         doorAddressText.setText(doorData.address);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+        }
+        return true;
     }
 }

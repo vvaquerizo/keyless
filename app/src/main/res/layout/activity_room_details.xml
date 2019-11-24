@@ -7,7 +7,7 @@
     tools:context=".RoomDetailsActivity">
 
     <ImageView
-        android:id="@+id/door_image"
+        android:id="@+id/add_door_image"
         android:layout_width="0dp"
         android:layout_height="256dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/door_image" />
+        app:layout_constraintTop_toBottomOf="@+id/add_door_image" />
 
     <TextView
         android:id="@+id/door_address_text"

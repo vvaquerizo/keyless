@@ -7,10 +7,8 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +36,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             super(itemView);
             textView_door_name = itemView.findViewById(R.id.door_name_text);
             textView_door_address = itemView.findViewById(R.id.door_address_text);
-            door_image = itemView.findViewById(R.id.door_image);
+            door_image = itemView.findViewById(R.id.add_door_image);
         }
     }
 
@@ -62,10 +60,12 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         context = holder.door_image.getContext();
 
         //convert byte to bitmap take from contact class
-        byte[] outImage=dataset.get(position).image;
-        ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
-        Bitmap theImage = BitmapFactory.decodeStream(imageStream);
-        holder.door_image.setImageBitmap(theImage);
+        byte[] outImage = dataset.get(position).image;
+        if (outImage != null) {
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+            Bitmap theImage = BitmapFactory.decodeStream(imageStream);
+            holder.door_image.setImageBitmap(theImage);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

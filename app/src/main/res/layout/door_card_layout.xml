@@ -15,7 +15,7 @@
         android:scaleType="centerCrop">
 
         <ImageView
-            android:id="@+id/door_image"
+            android:id="@+id/add_door_image"
             android:layout_width="128dp"
             android:layout_height="128dp"
             app:srcCompat="@drawable/login_background"
