@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Keyless</string>
+
+    <!-- MainActivity -->
     <string name="username_text">Username</string>
     <string name="password_text">Password</string>
     <string name="login_button">LOGIN</string>
+
+    <string name="background_description">Background</string>
+    <string name="logo_description">App logo</string>
+
+    <!-- New Door Activity -->
+    <string name="door_name">Name</string>
+    <string name="door_address">Address</string>
+    <string name="door_price">Price</string>
+    <string name="door_price_units"> €/month </string>
+    <string name="add_door">Add door</string>
+
+    <string name="door_image_description">Door image</string>
+    <string name="edit_image_description">Edit image</string>
 </resources>
