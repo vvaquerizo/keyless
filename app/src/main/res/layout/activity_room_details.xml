@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imagen_piso_1"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/door_image_description"/>
 
     <TextView
         android:id="@+id/door_name_text"
@@ -22,7 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Nombre de la puerta"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,18 +33,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Dirección"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/door_name_text"
         app:layout_constraintTop_toBottomOf="@+id/door_name_text" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/door_price_units"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text=" €/mes"
+        android:text="@string/door_price_units"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/door_address_text" />
@@ -53,9 +52,8 @@
         android:id="@+id/door_price_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="600"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintEnd_toStartOf="@+id/door_price_units"
+        app:layout_constraintTop_toTopOf="@+id/door_price_units" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Detalles");
+        getSupportActionBar().setTitle(R.string.details);
 
         // Get the Intent that started this activity and extract the position
         Intent intent = getIntent();

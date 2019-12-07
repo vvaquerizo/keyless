@@ -28,7 +28,7 @@ public class NewDoorActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Añadir puerta");
+        getSupportActionBar().setTitle(R.string.add_door);
 
         final EditText doorName = findViewById(R.id.add_name_text);
         final EditText doorAddress = findViewById(R.id.add_address_text);

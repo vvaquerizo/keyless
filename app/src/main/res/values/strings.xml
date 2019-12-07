@@ -18,4 +18,9 @@
 
     <string name="door_image_description">Door image</string>
     <string name="edit_image_description">Edit image</string>
+
+    <!-- Room Details Acivity -->
+    <!-- <string name="door_price_units"> €/month </string> -->
+    <!-- <string name="door_image_description">Door image</string> -->
+    <string name="details">Door details</string>
 </resources>
