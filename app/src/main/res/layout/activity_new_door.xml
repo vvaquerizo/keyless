@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nombre"
+        android:hint="Nombre"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Dirección"
+        android:hint="Dirección"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_name_text" />
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="Precio" />
+            android:hint="Precio" />
 
         <TextView
             android:id="@+id/textView2"
