@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Nombre"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="@string/door_name"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="false"/>
 
     <EditText
         android:id="@+id/add_address_text"
@@ -21,10 +22,11 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Dirección"
+        android:hint="@string/door_address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_name_text" />
+        app:layout_constraintTop_toBottomOf="@+id/add_name_text"
+        android:autofillHints="false"/>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -43,31 +45,46 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:hint="Precio" />
+            android:hint="@string/door_price"
+            android:autofillHints="false"/>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text=" €/mes "
+            android:hint="@string/door_price_units"
             android:textSize="18sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/add_door_image"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/door_image_description"
         android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:srcCompat="@drawable/login_background" />
+
+    <ImageView
+        android:id="@+id/edit_door_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="@string/edit_image_description"
+        app:layout_constraintBottom_toBottomOf="@+id/add_door_image"
+        app:layout_constraintEnd_toEndOf="@+id/add_door_image"
+        app:layout_constraintStart_toStartOf="@+id/add_door_image"
+        app:layout_constraintTop_toTopOf="@+id/add_door_image"
+        app:srcCompat="@drawable/ic_edit_white_24dp" />
 
     <Button
         android:id="@+id/add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Añadir"
+        android:text="@string/add_door"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
