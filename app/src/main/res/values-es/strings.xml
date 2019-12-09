@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Keyless</string>
+    <string name="add_door">Añadir puerta</string>
+    <string name="background_description">Fondo</string>
+    <string name="bad_credentials_message">Nombre de usuario o contraseña incorrectos</string>
+    <string name="details">Detalles de puerta</string>
+    <string name="door_address">Dirección</string>
+    <string name="door_image_description">Imagen de puerta</string>
+    <string name="door_name">Nombre</string>
+    <string name="door_price">Precio</string>
+    <string name="door_price_units">" €/mes "</string>
+    <string name="edit_image_description">Editar imagen</string>
+    <string name="login_button">INICIAR SESIÓN</string>
+    <string name="logo_description">Logo de la aplicación</string>
+    <string name="password_text">Contraseña</string>
+    <string name="username_text">Nombre de usuario</string>
+</resources>
