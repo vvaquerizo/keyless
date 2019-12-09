@@ -9,6 +9,8 @@
     <string name="background_description">Background</string>
     <string name="logo_description">App logo</string>
 
+    <string name="bad_credentials_message">Incorrect username or password</string>
+
     <!-- New Door Activity -->
     <string name="door_name">Name</string>
     <string name="door_address">Address</string>

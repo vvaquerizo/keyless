@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,5 +47,19 @@ public class DataBase {
         cv.put("price", doorData.price);
         cv.put("image", doorData.image);
         db.insert( "doors", null, cv );
+    }
+
+    public static boolean existUserPassword(Context context, String username, String password) {
+        String md5password = "";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //md5password = md.digest("password".getBytes("UTF-8")).toString();
+            md5password = new BigInteger(1, md.digest(password.getBytes("UTF-8"))).toString(16);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String[] userPassword = {username,md5password};
+        Cursor cursor = getDataBase(context).query("users",null, "name=? AND password=?", userPassword,null,null,null);
+        return (cursor.getCount() >= 1);
     }
 }

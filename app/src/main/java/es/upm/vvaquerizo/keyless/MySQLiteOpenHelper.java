@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -27,7 +28,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         createDoorsTable(db);
+        populateDoorsTable(db);
         createUsersTable(db);
+        populateUsersTable(db);
     }
 
     private void createDoorsTable(SQLiteDatabase db) {
@@ -36,7 +39,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 " address TEXT," +
                 " price INT," +
                 " image BLOB)");
+    }
 
+    private void populateDoorsTable(SQLiteDatabase db) {
         ContentValues cv = new ContentValues();
         cv.put("name", "Apartamentos Buenavista");
         cv.put("address", "C/ Buenavista, 21, 1º B");
@@ -56,17 +61,19 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE users (" +
                 " name TEXT," +
                 " password TEXT)");
+    }
 
+    private void populateUsersTable(SQLiteDatabase db) {
         ContentValues cv = new ContentValues();
         cv.put("name","vvaquerizo");
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            cv.put("password",md.digest("password".getBytes("UTF-8")));
+            //cv.put("password",md.digest("password".getBytes("UTF-8")).toString());
+            cv.put("password",new BigInteger(1, md.digest("password".getBytes("UTF-8"))).toString(16));
         } catch (Exception e) {
             e.printStackTrace();
         }
         db.insert("users", null, cv);
-
     }
 
     private byte[] getByteImageFromDrawable(int id) {
