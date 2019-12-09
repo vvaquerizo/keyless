@@ -10,6 +10,8 @@ import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
@@ -24,14 +26,18 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE doors ( id INT," +
+        createDoorsTable(db);
+        createUsersTable(db);
+    }
+
+    private void createDoorsTable(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE doors (" +
                 " name TEXT," +
                 " address TEXT," +
                 " price INT," +
                 " image BLOB)");
 
         ContentValues cv = new ContentValues();
-        cv.put("id",1);
         cv.put("name", "Apartamentos Buenavista");
         cv.put("address", "C/ Buenavista, 21, 1º B");
         cv.put("price", 600);
@@ -39,12 +45,28 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.insert( "doors", null, cv );
 
         cv = new ContentValues();
-        cv.put("id",2);
         cv.put("name", "Pisos Soleados");
         cv.put("address", "Avenida Esperanza, 154, 4ºC");
         cv.put("price", 500);
         cv.put("image", getByteImageFromDrawable(R.drawable.imagen_piso_2));
         db.insert( "doors", null, cv);
+    }
+
+    private void createUsersTable(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE users (" +
+                " name TEXT," +
+                " password TEXT)");
+
+        ContentValues cv = new ContentValues();
+        cv.put("name","vvaquerizo");
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            cv.put("password",md.digest("password".getBytes("UTF-8")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        db.insert("users", null, cv);
+
     }
 
     private byte[] getByteImageFromDrawable(int id) {
