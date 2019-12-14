@@ -15,4 +15,5 @@
     <string name="logo_description">Logo de la aplicación</string>
     <string name="password_text">Contraseña</string>
     <string name="username_text">Nombre de usuario</string>
+    <string name="get_code">OBTENER CÓDIGO</string>
 </resources>

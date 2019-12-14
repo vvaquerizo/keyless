@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +48,15 @@ public class RoomDetailsActivity extends AppCompatActivity {
 
         TextView doorAddressText = findViewById(R.id.door_address_text);
         doorAddressText.setText(doorData.address);
+
+        Button getCode = findViewById(R.id.get_code);
+        getCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CodeManager codeManager = new CodeManager(RoomDetailsActivity.this);
+                codeManager.execute();
+            }
+        });
     }
 
     @Override

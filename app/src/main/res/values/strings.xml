@@ -25,4 +25,10 @@
     <!-- <string name="door_price_units"> €/month </string> -->
     <!-- <string name="door_image_description">Door image</string> -->
     <string name="details">Door details</string>
+    <string name="get_code">GET CODE</string>
+
+    <string name="getting_code">Retrieving code</string>
+    <string name="wait">Please wait...</string>
+
+    <string name="retrieved_code">The code for the door is:</string>
 </resources>
