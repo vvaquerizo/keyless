@@ -16,4 +16,7 @@
     <string name="password_text">Contraseña</string>
     <string name="username_text">Nombre de usuario</string>
     <string name="get_code">OBTENER CÓDIGO</string>
+    <string name="getting_code">Obteniendo código</string>
+    <string name="retrieved_code">El código de la puerta es:</string>
+    <string name="wait">Por favor, espere...</string>
 </resources>
