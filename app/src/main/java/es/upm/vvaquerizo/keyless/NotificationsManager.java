@@ -47,15 +47,16 @@ public class NotificationsManager {
 
     public void sendNotificationUpdatedCode(DoorData doorData) {
         Intent intent = new Intent(context, DoorDetailsActivity.class);
-        intent.putExtra("door_id", doorData.id);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        intent.putExtra("door_id", doorData.id - 1);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, doorData.id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"1")
                 .setSmallIcon(R.drawable.ic_stat_name)
                 .setContentTitle("Código actualizado")
                 .setContentText("El código de la puerta " + doorData.name + " se ha actualizado")
                 .setLargeIcon(BitmapFactory.decodeByteArray(doorData.image,0,doorData.image.length))
-                .setContentIntent(pendingIntent);
-        notificationManager.notify(1,builder.build());
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+        notificationManager.notify(doorData.id,builder.build());
     }
 }

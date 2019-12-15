@@ -3,6 +3,10 @@ package es.upm.vvaquerizo.keyless;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean correctCredentials = DataBase.existUserPassword( MainActivity.this,username_text.getText().toString(), password_text.getText().toString());
 
                 if (correctCredentials) {
+                    scheduleJob();
                     Intent i = new Intent(MainActivity.this, DoorListActivity.class);
                     MainActivity.this.startActivity(i);
                 } else {
@@ -49,5 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void scheduleJob() {
+        int renewalIntervalMilis = 30*60*1000;
+        ComponentName componentName = new ComponentName(this, JobSchedulerService.class);
+        final JobInfo jobInfo = new JobInfo.Builder(1, componentName)
+                .setPersisted(true)
+                .setPeriodic(renewalIntervalMilis)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(
+                Context.JOB_SCHEDULER_SERVICE);
+        jobScheduler.schedule(jobInfo);
+        Toast.makeText(MainActivity.this, "The codes are renewed each " + jobInfo.getIntervalMillis()/60/1000 + " min",
+                Toast.LENGTH_SHORT).show();
     }
 }
