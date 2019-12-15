@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NewDoorActivity"></activity>
-        <activity android:name=".RoomDetailsActivity" />
+        <activity android:name=".DoorDetailsActivity" />
         <activity android:name=".DoorListActivity" />
         <activity
             android:name=".MainActivity"

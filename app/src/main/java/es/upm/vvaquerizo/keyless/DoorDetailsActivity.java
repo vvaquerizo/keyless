@@ -2,6 +2,7 @@ package es.upm.vvaquerizo.keyless;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 
 import java.io.ByteArrayInputStream;
 
-public class RoomDetailsActivity extends AppCompatActivity {
+public class DoorDetailsActivity extends AppCompatActivity {
     int door_id;
     DoorData doorData;
 
@@ -53,7 +54,9 @@ public class RoomDetailsActivity extends AppCompatActivity {
         getCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CodeManager codeManager = new CodeManager(RoomDetailsActivity.this);
+                //*** TEST ***//
+                NotificationsManager.getInstance(DoorDetailsActivity.this).sendNotificationUpdatedCode(doorData);
+                CodeManager codeManager = new CodeManager(DoorDetailsActivity.this);
                 codeManager.execute();
             }
         });

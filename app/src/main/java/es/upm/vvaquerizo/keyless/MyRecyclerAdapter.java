@@ -70,7 +70,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, RoomDetailsActivity.class);
+                Intent intent = new Intent(context, DoorDetailsActivity.class);
                 intent.putExtra("door_id", position);
                 context.startActivity(intent);
             }

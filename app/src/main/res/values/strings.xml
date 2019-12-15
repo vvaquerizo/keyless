@@ -31,4 +31,7 @@
     <string name="wait">Please wait...</string>
 
     <string name="retrieved_code">The code for the door is:</string>
+
+    <!-- Notificatons -->
+    <string name="channel_name">Door code update</string>
 </resources>
