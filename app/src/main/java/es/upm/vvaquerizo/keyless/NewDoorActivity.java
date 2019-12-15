@@ -50,7 +50,7 @@ public class NewDoorActivity extends AppCompatActivity {
         addDoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DoorData doorData = new DoorData(doorName.getText().toString(),doorAddress.getText().toString(),Integer.parseInt(doorPrice.getText().toString()),imageByteArray);
+                DoorData doorData = new DoorData(0, doorName.getText().toString(),doorAddress.getText().toString(),Integer.parseInt(doorPrice.getText().toString()),imageByteArray);
                 DataBase.addDoor(NewDoorActivity.this,doorData);
 
                 finish();

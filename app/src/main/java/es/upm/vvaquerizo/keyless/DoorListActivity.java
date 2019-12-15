@@ -35,7 +35,7 @@ public class DoorListActivity extends AppCompatActivity {
         addRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DoorListActivity.this,NewDoorActivity.class);
+                Intent intent = new Intent(DoorListActivity.this, NewDoorActivity.class);
                 DoorListActivity.this.startActivity(intent);
             }
         });

@@ -2,7 +2,9 @@ package es.upm.vvaquerizo.keyless;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 
@@ -44,11 +46,16 @@ public class NotificationsManager {
     }
 
     public void sendNotificationUpdatedCode(DoorData doorData) {
+        Intent intent = new Intent(context, DoorDetailsActivity.class);
+        intent.putExtra("door_id", doorData.id);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"1")
                 .setSmallIcon(R.drawable.ic_stat_name)
                 .setContentTitle("Código actualizado")
                 .setContentText("El código de la puerta " + doorData.name + " se ha actualizado")
-                .setLargeIcon(BitmapFactory.decodeByteArray(doorData.image,0,doorData.image.length));
+                .setLargeIcon(BitmapFactory.decodeByteArray(doorData.image,0,doorData.image.length))
+                .setContentIntent(pendingIntent);
         notificationManager.notify(1,builder.build());
     }
 }

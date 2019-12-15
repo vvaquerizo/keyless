@@ -23,13 +23,14 @@ public class DataBase {
 
     public static List<DoorData> getDoorsList(Context context) {
         List<DoorData> doors = new ArrayList<DoorData>();
-        Cursor cursor = getDataBase(context).query("doors", null, null, null, null, null, null);
+        Cursor cursor = getDataBase(context).query("doors", new String[] {"rowid","name","address","price","image"}, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast())
         {
             int index = cursor.getColumnIndex("price");
-            doors.add(new DoorData(cursor.getString(cursor.getColumnIndex("name"))
+            doors.add(new DoorData(cursor.getInt(cursor.getColumnIndex("rowid"))
+                    ,cursor.getString(cursor.getColumnIndex("name"))
                     ,cursor.getString(cursor.getColumnIndex("address"))
                     ,cursor.getInt(cursor.getColumnIndex("price"))
                     ,cursor.getBlob(cursor.getColumnIndex("image"))));
@@ -41,7 +42,6 @@ public class DataBase {
 
     public static void addDoor(Context context, DoorData doorData) {
         ContentValues cv = new ContentValues();
-        cv.put("id",3);
         cv.put("name", doorData.name);
         cv.put("address", doorData.address);
         cv.put("price", doorData.price);
