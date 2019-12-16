@@ -65,7 +65,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     private void populateUsersTable(SQLiteDatabase db) {
         ContentValues cv = new ContentValues();
-        cv.put("name","vvaquerizo");
+        cv.put("name","test");
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             //cv.put("password",md.digest("password".getBytes("UTF-8")).toString());
