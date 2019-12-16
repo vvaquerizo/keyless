@@ -22,11 +22,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 
     private Context context;
 
-    /*@Override
-    public void onClick(View view) {
-        Toast.makeText(context, String.valueOf(view.), Toast.LENGTH_LONG).show();
-    }*/
-
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView_door_name;
         public TextView textView_door_address;

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         JobScheduler jobScheduler = (JobScheduler) getSystemService(
                 Context.JOB_SCHEDULER_SERVICE);
         jobScheduler.schedule(jobInfo);
-        Toast.makeText(MainActivity.this, "The codes are renewed each " + jobInfo.getIntervalMillis()/60/1000 + " min",
+        Toast.makeText(MainActivity.this, String.format(getResources().getString(R.string.code_renewal_period),jobInfo.getIntervalMillis()/60/1000),
                 Toast.LENGTH_SHORT).show();
     }
 }

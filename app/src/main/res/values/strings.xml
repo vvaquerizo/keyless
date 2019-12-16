@@ -11,6 +11,8 @@
 
     <string name="bad_credentials_message">Incorrect username or password</string>
 
+    <string name="code_renewal_period">The codes are renewed each %d min</string>
+
     <!-- New Door Activity -->
     <string name="door_name">Name</string>
     <string name="door_address">Address</string>
@@ -34,4 +36,7 @@
 
     <!-- Notificatons -->
     <string name="channel_name">Door code update</string>
+    <string name="code_updated">Code updated</string>
+    <string name="code_updated_info">The code for the door %s has been updated</string>
+
 </resources>

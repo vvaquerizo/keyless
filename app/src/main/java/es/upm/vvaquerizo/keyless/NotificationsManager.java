@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 
 import androidx.core.app.NotificationCompat;
 
@@ -50,13 +49,16 @@ public class NotificationsManager {
         intent.putExtra("door_id", doorData.id - 1);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, doorData.id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        String message = String.format(context.getResources().getString(R.string.code_updated_info),doorData.name);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"1")
                 .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle("Código actualizado")
-                .setContentText("El código de la puerta " + doorData.name + " se ha actualizado")
+                .setContentTitle(context.getResources().getString(R.string.code_updated))
+                .setContentText(message)
                 .setLargeIcon(BitmapFactory.decodeByteArray(doorData.image,0,doorData.image.length))
                 .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(message));
         notificationManager.notify(doorData.id,builder.build());
     }
 }

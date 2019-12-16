@@ -54,8 +54,6 @@ public class DoorDetailsActivity extends AppCompatActivity {
         getCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //*** TEST ***//
-                NotificationsManager.getInstance(DoorDetailsActivity.this).sendNotificationUpdatedCode(doorData);
                 CodeManager codeManager = new CodeManager(DoorDetailsActivity.this);
                 codeManager.execute();
             }

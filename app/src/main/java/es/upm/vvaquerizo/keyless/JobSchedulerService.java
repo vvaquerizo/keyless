@@ -11,8 +11,6 @@ public class JobSchedulerService extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
-        Toast.makeText(JobSchedulerService.this, "Se ejecuta el trabajo",
-                Toast.LENGTH_SHORT).show();
         List<DoorData> doorList = DataBase.getDoorsList(JobSchedulerService.this);
         int randomId = new Random().nextInt(doorList.size());
         NotificationsManager.getInstance(JobSchedulerService.this).sendNotificationUpdatedCode(doorList.get(randomId));
