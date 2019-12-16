@@ -19,4 +19,7 @@
     <string name="getting_code">Obteniendo código</string>
     <string name="retrieved_code">El código de la puerta es:</string>
     <string name="wait">Por favor, espere...</string>
+    <string name="code_renewal_period">Los códigos se renuevan cada %d min</string>
+    <string name="code_updated">Código actualizado</string>
+    <string name="code_updated_info">El código de la puerta %s ha sido actualizado</string>
 </resources>
